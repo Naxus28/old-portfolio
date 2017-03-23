@@ -4,16 +4,19 @@
 	margin-right:0; 
 	max-width: 100%;
 }
+ol, ul {
+	margin-bottom: 0px;
+}
 
-//*****************
+
+
 //GLOBAL STYLES
+//**********************************************
 body{
 	font-size: 100%;
 	color: $text_color;
 	font-family: $lato;
 	font-weight: 300;  
-	margin-left: 0px;
-	margin-right: 0px;
 }
 .article{
 	padding-top: 80px;
@@ -69,15 +72,10 @@ li{
 }
 
 
-//*****************
 //HEADER SECTION
+//**********************************************
 header{
 	position: relative;
-	ul.main_nav{
-		margin-bottom: 10px;
-		margin-top: 40px;
-		padding-bottom: 20px;
-	}
 	.menu_row{
 		.fa{
 			display:none;
@@ -88,8 +86,13 @@ header{
       rgba(255, 255, 250, 0.55), 
       rgba(255, 255, 250, 0.55)
     ), url(../images/office.jpg);
+	// background-size: cover;
+	min-height:100%;
+	width: 100%;
+	@media screen and(min-width: 600px) and (max-width: 780px){
 	background-size: cover;
-	height:100%;
+	min-height: none;
+	}
 	.name_profession{
 		padding-left:0; 
 		padding-right:0;
@@ -111,13 +114,12 @@ header{
 		padding-left: 10%;
 		&.scroll{
 			@media screen and (min-width: 641px){
-				width: 100%;
 				position: fixed;
 				top: 0;
 				width: 100%;
 				margin-top: 0;
 				margin-bottom: -70px;
-				padding-top: 10px;
+				padding-top: 15px;
 				padding-bottom: 0;
 				z-index: 100;
 				background: #F0F0E3;
@@ -129,7 +131,7 @@ header{
 		@include headers();
 		font-size: 1.5em;
 		cursor: pointer;
-		padding-bottom: 10px;
+		padding-bottom: 15px;
 		&:last-child{
 			padding-right: 0px;
 			@media screen and (max-width: 640px){
@@ -175,8 +177,9 @@ header{
 	}
 }
 
-//*****************
+
 //PORTFOLIO SECTION
+//**********************************************
 #portfolio{
 	.web_works{
 		.hide_works{
@@ -221,7 +224,7 @@ header{
 			margin-bottom: 5px;
 			text-transform: uppercase;
 			cursor: pointer;
-			transition: all 0.1s ease-in-out;
+			transition: all 0.2s ease-in-out;
 			font-size: 1.3em;
 			&:nth-child(1){
 				padding-left: 0;
@@ -315,7 +318,7 @@ header{
 	.load_more{
 		font-style: oblique;
 		text-align: center;
-		font-size: 2.3em;
+		font-size: 2em;
 		color: $blue;
 		cursor: pointer;
 		&:hover{
@@ -324,9 +327,79 @@ header{
 	}
 }
 
+//MESSAGES SECTIONS
+//**********************************************
 
-//*****************
+article.message_one, article.message_two, article.message_three{
+	h2{
+		margin-bottom: 0;
+		border: none;
+		font-size: 3em;
+		@media screen and (max-width: 1024px){
+			font-size: 2.5em;
+		}
+		@media screen and (max-width: 810px){
+			font-size: 2em;
+		}
+		@media screen and (max-width: 670px){
+			font-size: 1.8em;
+		}
+		@media screen and (max-width: 600px){
+			font-size: 1.5em;
+		}
+		@media screen and (max-width: 503px){
+			font-size: 1.3em;
+		}
+	}
+	padding-top: 130px;
+	padding-bottom: 130px;
+
+}
+
+article.parallax{
+	&.message_one{
+		background: linear-gradient(
+	      rgba(255, 255, 250, 0.55), 
+	      rgba(255, 255, 250, 0.55)
+	    ), url(../images/extra_backgrounds/keyboard.jpg) fixed no-repeat;
+	}
+	&.message_two{
+		background: linear-gradient(
+	      rgba(255, 255, 250, 0.55), 
+	      rgba(255, 255, 250, 0.55)
+	    ), url(../images/extra_backgrounds/home-office.jpg) fixed no-repeat;
+	}
+	&.message_three{
+		background: linear-gradient(
+	      rgba(255, 255, 250, 0.55), 
+	      rgba(255, 255, 250, 0.55)
+	    ), url(../images/extra_backgrounds/headphones_computer.jpg) fixed no-repeat;
+	}
+	&.desktop{
+		@media screen and (min-width: 1351px) and (max-width: 1500px){
+			background-size: 200%;
+
+		}
+		@media screen and (min-width: 1111px) and (max-width: 1350px){
+			background-size: 145%;
+		}
+		@media screen and (min-width: 1024px) and (max-width: 1110px){
+			background-size: 180%;
+		}
+		@media screen and (max-width: 1023px){
+			display: none;
+		}
+	}
+	&.mobile{
+		background-size: cover;
+		@media screen and (min-width: 1024px){
+			display: none;
+		}
+	}
+}
+
 //ABOUT SECTION
+//**********************************************
 
 article#about{
 	background: $darker_beige;
@@ -343,10 +416,10 @@ article#about{
 		.slider{
 			position: relative;
 			height: 100%;
-			background-color: transparent;
+			background: none;
 			.direction{
 				position: absolute;
-				top: 35%;
+				top: 32.8%;
 				cursor: pointer;
 				color: $beige;
 				transition: all 0.2s ease-in-out;
@@ -354,7 +427,7 @@ article#about{
 					left: 20px;
 				}
 				&.next{
-					right: 40px;
+					right: 35px;
 				}
 				&:hover{
 					color: $text_color;
@@ -478,9 +551,9 @@ article#about{
 	}
 }
 
-//*****************
-//SKILLS SECTION
 
+//SKILLS SECTION
+//**********************************************
 article#skills{
 	background: $beige;
 	.skills{
@@ -516,8 +589,8 @@ article#skills{
 }
 
 
-//*****************
 //CONTACT SECTION
+//**********************************************
 
 article#contact{
 	background: $darker_beige;
@@ -528,31 +601,6 @@ article#contact{
 		.contact_text{
 			padding-left: 0;
 			padding-right: 0;
-		}
-	}
-	.alert_messages{
-		.alert{
-			font-size: 1em;
-			display: none;
-			margin-bottom: 10px;
-			padding: 5px;
-			color: white;
-			border-radius: 3px;
-
-			.close {
-				color: white;
-				float: right;
-    		padding-right: 10px;
-    		font-weight: 600;
-			}
-		}
-		.fail{
-			background: #EC5D45;
-			border: 1px solid #D23014;
-		}
-		.success{
-			background: #6DB286;
-			border: 1px solid #3a945b;
 		}
 	}
 	form{
@@ -594,9 +642,9 @@ article#contact{
 	}
 }
 
-//*****************
-//FOOTER SECTION
 
+//FOOTER SECTION
+//**********************************************
 footer{
 	background: #EBE1CF;
 	section.footer{
@@ -616,6 +664,10 @@ footer{
 		iframe{
 			width: 90%;
 			height: 45%;
+			@media screen and (max-width: 1024px){
+				width: 100%;
+				height: 200px;
+			}
 		}
 	}
 	.social{
@@ -652,61 +704,132 @@ footer{
 	}
 }
 
-// success page
+// FAIL PAGE
+//**********************************************
+// div.message_fail{
+// 	background: linear-gradient(
+//       rgba(255, 255, 250, 0.55), 
+//       rgba(255, 255, 250, 0.55)
+//     ), url(../images/office.jpg);
+// 	background-size: cover;
+// 	height:100%;
+// 	padding-left: 20px;
+// 	padding-right: 20px;
+// 	h1{
+// 		margin-top: 250px;
+// 		font-size: 3.5em;
+// 		&.success_noAccess{
+// 				font-size: 4em;
+// 		}
+// 		@media screen and (max-width: 1024px){
+// 			font-size: 3.5em;
+// 			margin-top: 200px;
+// 			&.success_noAccess{
+// 				font-size: 3em;
+// 			}
+// 		}
+// 		@media screen and (max-width: 800px){
+// 			font-size: 3em;
+// 			margin-top: 150px;
+// 			&.success_noAccess{
+// 				font-size: 2.5em;
+// 			}
+// 		}
+// 		@media screen and (max-width: 768px){
+// 			font-size: 2.5em;
+// 			margin-top: 350px;
+// 			&.success_noAccess{
+// 				font-size: 2em;
+// 			}
+// 		}
+// 		@media screen and (max-width: 600px){
+// 			font-size: 2em;
+// 			margin-top: 250px;
+// 		}
+// 		@media screen and (max-width: 480px){
+// 			font-size: 1.5em;
+// 			margin-top: 100px;
+// 			&.success_noAccess{
+// 				font-size: 1.5em;
+// 			}
+// 		}
+// 		@media screen and (max-width: 320px){
+// 			font-size: 1.5em;
+// 			margin-top: 150px;
+// 			&.success_noAccess{
+// 				font-size: 1em;
+// 			}
+// 		}
+// 	}
+// 	p.return{
+// 		margin-top: 60px;
+// 		font-size: 3em;
+// 		text-align: center;
+// 		@media screen and (max-width: 800px){
+// 			font-size: 2em;
+// 			margin-top: 20px;
+// 		}
+// 		@media screen and (max-width: 768px){
+// 			font-size: 2em;
+// 			margin-top: 20px;
+// 		}
+// 		@media screen and (max-width: 600px){
+// 			font-size: 2em;
+// 			margin-top: 20px;
+// 		}
+// 		@media screen and (max-width: 480px){
+// 			font-size: 1.5em;
+// 			margin-top: 20px;
+// 		}
+// 		a{
+// 			color: $text_color;
+// 			transition: all 0.2s ease-in-out;
+// 			&:hover{
+// 				color: black;
+// 			}
+// 		}
+// 	}
+// }
 
-.success{
-	background: linear-gradient(
-      rgba(255, 255, 250, 0.55), 
-      rgba(255, 255, 250, 0.55)
-    ), url(../images/office.jpg);
-	background-size: cover;
-	height:100%;
-	h1{
-		font-size: 5em;
-		@media screen and (max-width: 1024px){
-			font-size: 4em;
-			margin-top: 220px;
-		}
-		@media screen and (max-width: 800px){
-			font-size: 3.5em;
-			margin-top: 150px;
-		}
-		@media screen and (max-width: 768px){
-			font-size: 3em;
-			margin-top: 350px;
-		}
-		@media screen and (max-width: 600px){
-			font-size: 2.5em;
-			margin-top: 250px;
-		}
-		@media screen and (max-width: 480px){
-			font-size: 2em;
-			margin-top: 100px;
-		}
-		@media screen and (max-width: 320px){
-			font-size: 1.5em;
-			margin-top: 150px;
-		}
-	}
-	p.return{
-		margin-top: 60px;
-		font-size: 3em;
-		text-align: center;
-		@media screen and (max-width: 480px){
-			font-size: 2em;
-			margin-top: 20px;
-		}
-		a{
-			color: $text_color;
-			transition: all 0.2s ease-in-out;
-			&:hover{
-				color: $blue;
-			}
-		}
-	}
+//**********ALERTS************
+//**********************************************
+
+div.success, div.fail{
+	display: none;
+	opacity: 0;
 }
 
+div.fail.alert.alert-box{
+	background: #f2dede; 
+	color: #a94442;
+	border: 1px solid #ebccd1;
+}
+div.success.alert.alert-box{
+	background: #dff0d8; 
+	color: #468847; 
+	border: 1px solid #d6e9c6;
+}
+
+article#contact .contact div.failed_email{
+	width: 100%;
+	text-align: center;
+	color: #413218;
+	background: #FFAA26;
+	border: 1px solid #D5771A;
+	a{
+		&.contact_me{
+			color: #413218;
+			text-decoration: underline;
+		}
+	}
+	
+	// padding: 10px;
+	// border-radius: 5px;
+}
+
+
 //**********GLOBAL MEDIA QUERIES************
+//**********************************************
 @media screen and (max-width: 1311px){
 	h1{
 		font-size: 6.5em;
@@ -822,8 +945,9 @@ footer{
 	}
 	header{
 		// height: 80%;
-		ul.main_nav{
-			margin-bottom: 10px!important;
+		.main_nav{
+			width: 100%;
+
 		}
 		.menu_row{
 			div{
@@ -842,7 +966,6 @@ footer{
 			} 
 		}
 		 ul.row{
-		 	width: 100%;
 			position: fixed;
 			top: 0px;
 			margin-top: 0;
@@ -850,7 +973,7 @@ footer{
 			display: none;
 			padding-left: 0px;
 			padding-right: 0px;
-			padding-top: 30px;
+			// padding-top: 30px;
 			background: #F0F0E3;
 			z-index: 200;
 			li{
@@ -858,6 +981,10 @@ footer{
 				padding-right: 5px;
 				padding-left: 5px;
 				padding-bottom: 20px;
+				padding-top: 20px;
+				&:not(&:nth-child(1)){
+					border-top: 1px solid $text_color;
+				}
 			}
 		}
 	}
