@@ -21,12 +21,9 @@ gulp.task('sass', function() {
 });
 
 gulp.task('scripts', function() {
-  return gulp.src(['js-source/carousel.js', 'js-source/app.js', ])
+  return gulp.src(['js-source/carousel.js', 'js-source/app.js', 'js-source/stellar.min.js'])
     .pipe($.concat('script.js'))
-    .pipe($.uglify())
-      .on('error', function(error) {
-         $.util.log(plugins.util.colors.red('Uglify error: ', error));
-      })
+
     .pipe(gulp.dest('js'))
 })
 
